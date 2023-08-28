@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 헤더</title>
+    <link rel="stylesheet" href="css/099.css">
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    
+    <script>
+        $(function(){
+            $('header .inner .pc .gnb .depth_01 > a').mouseenter(function(){
+                $('.depth_02').stop().slideUp()
+                $(this).next().stop().slideToggle()
+            })
+            $('header .inner .pc .gnb').mouseleave(function(){
+                $('.depth_02').stop().slideUp()
+            })
+
+            $('.mobile_gnb .depth_01 > a').click(function(){
+                $('.mobile_gnb .depth_01 .depth_02').stop().slideUp(600, 'easeOutElastic')
+
+                if($(this).css('background-color') == 'rgb(103, 196, 75)'){
+                    $(this).removeClass('on')
+                    $(this).next().slideUp(600, 'easeOutElastic')
+                }
+                else{
+                    $('.mobile_gnb .depth_01 > a').removeClass('on')
+                    $(this).next().stop().slideToggle(600, 'easeOutElastic')
+                    $(this).addClass('on')
+
+                }
+
+            })
+            $('.mobile_gnb .gnb').mouseleave(function(){
+                $('.mobile_gnb .depth_01 .depth_02').stop().slideUp(600, 'easeOutElastic')
+                $('.mobile_gnb .depth_01 > a').removeClass('on')
+
+
+            })
+            $('.mobile_gnb').stop().slideUp(600, 'easeOutElastic')
+
+            $('.menu_open').click(function(){
+                $('.mobile_gnb').stop().slideDown(600, 'easeOutElastic')
+            })
+            $('.menu_close').click(function(){
+                $('.mobile_gnb').stop().slideUp(600, 'easeOutElastic')
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">logo</a>
+            </h1>
+
+            <nav class="pc">
+                <ul class="gnb">
+                    <li class="depth_01"> 
+                        <a href="#">menu1</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                            <li><a href="#">menu1-3</a></li>
+                            <li><a href="#">menu1-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                    <li class="depth_01"> 
+                        <a href="#">menu2</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu2-1</a></li>
+                            <li><a href="#">menu2-2</a></li>
+                            <li><a href="#">menu2-3</a></li>
+                            <li><a href="#">menu2-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                    <li class="depth_01"> 
+                        <a href="#">menu3</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu3-1</a></li>
+                            <li><a href="#">menu3-2</a></li>
+                            <li><a href="#">menu3-3</a></li>
+                            <li><a href="#">menu3-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                    <li class="depth_01"> 
+                        <a href="#">menu4</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu4-1</a></li>
+                            <li><a href="#">menu4-2</a></li>
+                            <li><a href="#">menu4-3</a></li>
+                            <li><a href="#">menu4-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                </ul><!-- .gnb end -->
+            </nav><!-- .pc end -->
+
+            <div class="mobile menu_open">
+                <p>메뉴보기</p>
+            </div><!-- .menu_open end -->
+
+            <nav class="mobile mobile_gnb">
+                <!-- 메뉴닫기 -->
+                <div class="menu_close">
+                    <p>메뉴닫기</p>
+                </div><!-- .menu_close end -->
+                <ul class="gnb">
+                    <li class="depth_01"> 
+                        <a href="#">menu1</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                            <li><a href="#">menu1-3</a></li>
+                            <li><a href="#">menu1-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                    <li class="depth_01"> 
+                        <a href="#">menu2</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu2-1</a></li>
+                            <li><a href="#">menu2-2</a></li>
+                            <li><a href="#">menu2-3</a></li>
+                            <li><a href="#">menu2-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                    <li class="depth_01"> 
+                        <a href="#">menu3</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu3-1</a></li>
+                            <li><a href="#">menu3-2</a></li>
+                            <li><a href="#">menu3-3</a></li>
+                            <li><a href="#">menu3-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                    <li class="depth_01"> 
+                        <a href="#">menu4</a>
+                        <ul class="depth_02">
+                            <li><a href="#">menu4-1</a></li>
+                            <li><a href="#">menu4-2</a></li>
+                            <li><a href="#">menu4-3</a></li>
+                            <li><a href="#">menu4-4</a></li>
+                        </ul><!-- .depth_02 end -->
+                    </li><!-- .depth_01 end -->
+                </ul><!-- .gnb end -->
+            </nav><!-- .mobile_gnb end -->
+
+        </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+        <img src="img/spring.jpg" alt="">
+    </section><!-- .main_visual end -->
+</body>
+</html>
